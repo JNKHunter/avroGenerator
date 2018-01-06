@@ -9,7 +9,7 @@ object AvroGenerator {
 
   def main(args: Array[String]) {
 
-    val insight = TestRecord.newBuilder()
+    val record = TestRecord.newBuilder()
       .setReferenceId("111122223333")
       .setUuid(UUID.randomUUID().toString)
       .setCreatedOn(1234567L)
@@ -17,13 +17,12 @@ object AvroGenerator {
         .setPayload(Data.newBuilder()
           .setProbability(5.0).build()).build()
 
-    println(insight.getSchema)
-
-
+    println(record.getSchema)
+    
     val writer = new SpecificDatumWriter[TestRecord]
     val fileWriter = new DataFileWriter(writer)
-    fileWriter.create(insight.getSchema, new File("records.avro"))
-    fileWriter.append(insight)
+    fileWriter.create(record.getSchema, new File("records.avro"))
+    fileWriter.append(record)
     fileWriter.close()
   }
 }
