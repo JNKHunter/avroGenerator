@@ -1,7 +1,7 @@
 {
    "type": "record",
-   "name": "NoveltyMerchant",
-   "namespace": "com.capitalone.eci.insights",
+   "name": "TestRecord",
+   "namespace": "com.brightmeta",
    "doc":"TODO: ADD A UNIQUE TOP LEVEL INSIGHT NAME. THIS WILL ALLOW FOR THE GENERATION OF CLASSES WITH NO NAMING COLLISIONS.",
    "fields": [{
          "name": "uuid",
@@ -9,14 +9,14 @@
          "doc":"A universally unique identifier for the insight. Must use UUID version 4."
       },
       {
-         "name": "profileReferenceId",
+         "name": "referenceId",
          "type": "string",
-         "doc": "The profile reference id for the customer this insight was generated for."
+         "doc": "The reference id for the customer this record was generated for."
       },
       {
-         "name": "insightName",
+         "name": "recordName",
          "type": "string",
-         "doc": "A unique name for the type of insight type. TODO: ADD NAMESPACE TO SHARED NAMESPACE MAP."
+         "doc": "A unique name for the type of record type."
       },
       {
          "name": "createdOn",
@@ -29,7 +29,7 @@
             "type": "record",
             "name": "Data",
             "fields": [{
-               "name": "noveltyMerchantPercentage",
+               "name": "probability",
                "type": "double"
             }]
          }
