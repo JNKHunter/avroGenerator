@@ -1,0 +1,38 @@
+{
+   "type": "record",
+   "name": "NoveltyMerchant",
+   "namespace": "com.capitalone.eci.insights",
+   "doc":"TODO: ADD A UNIQUE TOP LEVEL INSIGHT NAME. THIS WILL ALLOW FOR THE GENERATION OF CLASSES WITH NO NAMING COLLISIONS.",
+   "fields": [{
+         "name": "uuid",
+         "type": "string",
+         "doc":"A universally unique identifier for the insight. Must use UUID version 4."
+      },
+      {
+         "name": "profileReferenceId",
+         "type": "string",
+         "doc": "The profile reference id for the customer this insight was generated for."
+      },
+      {
+         "name": "insightName",
+         "type": "string",
+         "doc": "A unique name for the type of insight type. TODO: ADD NAMESPACE TO SHARED NAMESPACE MAP."
+      },
+      {
+         "name": "createdOn",
+         "doc": "Number of milliseconds since epoch when the insight was generated",
+         "type": "long"
+      },
+      {
+         "name": "payload",
+         "type": {
+            "type": "record",
+            "name": "Data",
+            "fields": [{
+               "name": "noveltyMerchantPercentage",
+               "type": "double"
+            }]
+         }
+      }
+   ]
+}
